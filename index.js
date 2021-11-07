@@ -1,17 +1,16 @@
 const express = require("express");
 const path = require("path");
-const members = require("./Members");
 const logger = require("./middleware/logger");
 const app = express();
 
 // Init middleware
 // app.use(logger);
 
-// Gets all members
-app.get("/api/members", (_req, res) => res.json(members));
-
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
+
+// Members API routes
+app.use("/api/members", require("./routes/api/members"));
 
 // Set routes manually
 // app.get("/", (_req, res) => {
