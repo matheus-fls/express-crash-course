@@ -31,7 +31,11 @@ router.post("/", (req, res) => {
   }
 
   members.push(newMember);
+  // API response
   res.json(members);
+
+  // Template redirect
+  // res.redirect("/");
 });
 
 // Update member
